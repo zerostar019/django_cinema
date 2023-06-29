@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %}<h2 class="alert text-center"></h2>{% endblock title %}
+
+
+<style>
+    section{
+        background-color: white;
+    }
+</style>
+
+<body>
+    
+{% block content %}
+<div class="container">
+
+<div class="row">
+  {% for film in films %}
+<div class="card text-center ml-2" style="width: 15rem; box-shadow: 3px 3px white;">
+  <img class="card-img-top" src="{{ film.img }}" alt="Card image cap" style="height: 18rem;">
+  <div class="card-body">
+    <p class="card-text"><a href="#">{{ film.title }}</a></p>
+  </div>
+</div>
+{% endfor %}
+</div>
+
+
+{% endblock content %}
+
+</body>

@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+    {% block title %}
+        <h1 class="text-center mt-2">
+        </h1>
+    {% endblock title %}
+
+    {% block content %}
+
+
+    <style>
+        div.custom-div{
+            margin-top: 200px;
+            align-items: center;
+        }
+        section.custom-sect{
+            height: 300px;
+            background: linear-gradient(0deg, rgba(6,13,13,0.75) 0%, rgba(92,64,5,0.6) 100%);
+            padding-top: 2%;
+            border-radius: 20px;
+        }
+    </style>
+
+<div class="container-fluid">
+    <div class="row justify-content-center custom-div">
+        <section class="col-8 col-sm-6 col-md-4 col-lg-4 col-xl-2 text-center custom-sect">
+        <form method="post">
+            {% csrf_token %}
+            <h4 style="color: white; margin-bottom: 10%;">Вход</h4>
+            <div class="form-group">
+                <input class="form-control" name="username" type="username" placeholder="Введите логин">
+            </div>
+            <div class="form-group">
+                <input class="form-control" name="password" type="password" placeholder="Введите пароль">
+                <a href="#" style="color: orange;"><small>Забыли пароль?</small></a>
+            </div>
+                <button class="btn btn-primary m-2" type="submit">Войти</button>
+                <a type="submit" class="btn btn-success m-2" href="{% url 'register' %}">Зарегистрироваться</a>
+                
+        </form>
+    </section>
+    </div>
+
+</div>
+
+   
+    
+    {% endblock content %}
+    

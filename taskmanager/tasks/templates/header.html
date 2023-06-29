@@ -1,0 +1,31 @@
+<div class="container-fluid">
+<nav class="navbar row navbar-dark bg-custom-1">
+    <a class="navbar-brand" href="{{ '' }}">
+        <img class="rounded" src="https://cdn-icons-png.flaticon.com/512/6519/6519536.png" width="40" height="40" alt="#">
+        <h4 class="navbar-brand">Фильмомания</h4>
+    </a>
+    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar_resp"
+    style="border: none;">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbar_resp">
+        <ul class="navbar-nav">
+            {% if user.is_authenticated %}
+            <li class="nav-item active">
+                <h6>@{{ username }}</h6>
+            </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'logout' %}">Выйти</a>
+                </li>
+            {% else %}
+            <li class="nav-item active">
+                <a class="nav-link" href="{% url 'register' }">Зарегистрироваться</a>
+            </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'login' %}">Войти</a>
+                </li>
+            {% endif %}
+        </ul>
+    </div>
+</nav>
+</div>

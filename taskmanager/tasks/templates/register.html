@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+    {% block title %}
+        <h1 class="text-center mt-2">
+        </h1>
+    {% endblock title %}
+
+    {% block content %}
+    <style>
+        section.custom-sect{
+            margin-top: 150px;
+            padding-top: 10px;
+            background-color: white;
+            height: 500px;
+            width: 350px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 5px 5px grey;
+            border-color: aqua;
+        }
+        #btns{
+            margin: 10px;
+        }    
+    </style>
+    
+    <body>
+
+        <div class="container"></div>
+        <section class="container custom-sect">
+            <div class="row m-5">
+                <div class="col"></div>
+                <div class="block"><h4>Регистрация</h4></div>
+                <div class="col"></div>
+            </div>
+            <form method="post">
+                {% csrf_token %}
+            <div class="form-group row">
+                <div class="col"></div>
+                <input name="username" type="text" class="form-control text-center" placeholder="Введите логин" style="width: 200px;">
+                <div class="col"></div>
+            </div>
+            <div class="form-group row">
+                <div class="col"></div>
+                <input name="email" type="text" class="form-control text-center" placeholder="Введите e-mail" style="width: 200px;">
+                <div class="col"></div>
+            </div>
+            <div class="form-group row">
+                <div class="col"></div>
+                <input name="password1" type="password" class="form-control text-center" placeholder="Введите пароль" style="width: 200px;">
+                <div class="col"></div>
+            </div>
+            <div class="form-group row">
+                <div class="col"></div>
+                <input name="password2" type="password" class="form-control text-center" placeholder="Повторите пароль" style="width: 200px;">
+                <div class="col"></div>
+            </div>
+            {% if messages %}
+            {% for msg in messages %}
+            <div class="row">
+                <div class="alert col alert-danger text-center">{{ msg }}</div> 
+            </div>
+            {% endfor %}
+            {% endif %}
+            <div class="row">
+                <div class="col"></div>
+                <button type="submit" class="btn block btn-success" id="btns">Сохранить</button>
+                <a href="{% url 'login' %}" class="btn btn-danger" id="btns">Назад</a>
+                <div class="col"></div>
+            </div>
+        </form>
+        </section>
+    </div>
+</body>
+
+
+   
+    
+    {% endblock content %}
+    
